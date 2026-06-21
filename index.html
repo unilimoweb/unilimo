@@ -359,7 +359,7 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
   <h2 class="section-heading reveal">World-Class Vehicles,<br><em>Uncompromising Comfort</em></h2>
   <div class="fleet-grid">
     <div class="fleet-card reveal reveal-delay-1">
-      <img class="fleet-img" src="images/chevrolet-suburban.jpg" alt="Chevrolet Suburban SUV" loading="lazy">
+      <img class="fleet-img" src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80" alt="Chevrolet Suburban SUV" loading="lazy">
       <div class="fleet-body">
         <div class="fleet-brand">Chevrolet</div>
         <div class="fleet-model">Suburban SUV · 6 Passenger</div>
@@ -579,25 +579,28 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
       </div>
     </div>
     <div class="reveal reveal-delay-2">
-      <form class="contact-form" onsubmit="handleQuote(event)">
+      <form class="contact-form" id="quoteForm" onsubmit="handleQuote(event)">
+        <input type="hidden" name="access_key" value="97f43f59-ee9e-45bd-bcb1-08c6e8adfe74">
+        <input type="hidden" name="subject" value="New Quote Request — Unilimo">
+        <input type="hidden" name="from_name" value="Unilimo Website">
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Full Name</label>
-            <input type="text" placeholder="John Smith" required>
+            <input type="text" name="name" placeholder="John Smith" required>
           </div>
           <div class="form-group">
             <label class="form-label">Phone Number</label>
-            <input type="tel" placeholder="(212) 000-0000" required>
+            <input type="tel" name="phone" placeholder="(212) 000-0000" required>
           </div>
         </div>
         <div class="form-group">
           <label class="form-label">Email Address</label>
-          <input type="email" placeholder="you@example.com" required>
+          <input type="email" name="email" placeholder="you@example.com" required>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Service Type</label>
-            <select required>
+            <select name="service_type" required>
               <option value="" disabled selected>Select service</option>
               <option>Airport Transfer</option>
               <option>Corporate Travel</option>
@@ -611,22 +614,32 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
           </div>
           <div class="form-group">
             <label class="form-label">Pickup Date</label>
-            <input type="date" required>
+            <input type="date" name="pickup_date" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Pickup Location</label>
-            <input type="text" placeholder="Manhattan, NY">
+            <input type="text" name="pickup_location" placeholder="Manhattan, NY">
           </div>
           <div class="form-group">
             <label class="form-label">Destination</label>
-            <input type="text" placeholder="JFK Airport">
+            <input type="text" name="destination" placeholder="JFK Airport">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Passenger Count</label>
+            <input type="number" name="passenger_count" placeholder="e.g. 3" min="1" max="56" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Luggage Count</label>
+            <input type="number" name="luggage_count" placeholder="e.g. 2" min="0" max="56" required>
           </div>
         </div>
         <div class="form-group">
           <label class="form-label">Additional Notes</label>
-          <textarea placeholder="Passengers, special requests, return trip details..."></textarea>
+          <textarea name="message" placeholder="Special requests, return trip details, vehicle preference..."></textarea>
         </div>
         <button type="submit" class="form-submit" id="submitBtn">Send Quote Request</button>
       </form>
@@ -706,10 +719,45 @@ document.addEventListener('click',e=>{
 // FORMS
 function handleQuote(e){
   e.preventDefault();
-  const btn=document.getElementById('submitBtn');
-  btn.textContent='✓ Request Received — We\'ll Be In Touch Shortly';
-  btn.style.background='#2d5a3d';btn.style.color='#9fd4b0';
-  setTimeout(()=>{btn.textContent='Send Quote Request';btn.style.background='';btn.style.color='';e.target.reset();},5000);
+  const form = e.target;
+  const btn = document.getElementById('submitBtn');
+  const originalText = 'Send Quote Request';
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  const formData = new FormData(form);
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      btn.textContent = '✓ Request Received — We\'ll Be In Touch Shortly';
+      btn.style.background = '#2d5a3d';
+      btn.style.color = '#9fd4b0';
+      form.reset();
+    } else {
+      btn.textContent = 'Something went wrong — please call us';
+      btn.style.background = '#5a2d2d';
+      btn.style.color = '#d49f9f';
+    }
+  })
+  .catch(() => {
+    btn.textContent = 'Network error — please call us';
+    btn.style.background = '#5a2d2d';
+    btn.style.color = '#d49f9f';
+  })
+  .finally(() => {
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = originalText;
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 5000);
+  });
 }
 function handleNewsletter(e){
   e.preventDefault();
