@@ -29,11 +29,9 @@
 html{scroll-behavior:smooth;font-size:16px}
 body{background:var(--midnight);color:var(--off-white);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
 
-/* CUSTOM CURSOR */
 .cursor{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s;mix-blend-mode:difference}
 .cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(184,149,42,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.15s ease;mix-blend-mode:normal}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:28px 64px;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s ease;background:transparent}
 nav.solid{background:rgba(7,10,18,0.96);border-bottom:1px solid rgba(184,149,42,0.1);padding:18px 64px;backdrop-filter:blur(8px)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;letter-spacing:6px;color:var(--white);text-decoration:none;text-transform:uppercase}
@@ -47,7 +45,6 @@ nav.solid{background:rgba(7,10,18,0.96);border-bottom:1px solid rgba(184,149,42,
 .nav-book::after{display:none!important}
 .nav-book:hover{background:var(--gold-light)!important;color:var(--midnight)!important}
 
-/* HERO */
 #hero{position:relative;height:100vh;min-height:720px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:linear-gradient(105deg,rgba(7,10,18,0.92) 0%,rgba(7,10,18,0.7) 40%,rgba(7,10,18,0.82) 100%),url('https://unilimo.com/wp-content/uploads/2018/06/car.jpg') center/cover no-repeat;z-index:0}
 .hero-bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,var(--midnight),transparent);z-index:1}
@@ -70,10 +67,8 @@ nav.solid{background:rgba(7,10,18,0.96);border-bottom:1px solid rgba(184,149,42,
 .scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 1.8s ease infinite}
 @keyframes scrollPulse{0%,100%{opacity:0.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.1)}}
 
-/* GOLD DIVIDER */
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.2;margin:0}
 
-/* SECTION BASE */
 section{padding:120px 64px}
 .section-tag{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:16px}
 .section-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--gold)}
@@ -81,7 +76,6 @@ section{padding:120px 64px}
 .section-heading em{font-style:italic;color:var(--gold)}
 .section-sub{font-size:14px;color:var(--muted);line-height:1.8;max-width:520px}
 
-/* REVEAL */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity 0.8s ease,transform 0.8s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 .reveal-delay-1{transition-delay:0.1s}
@@ -90,7 +84,6 @@ section{padding:120px 64px}
 .reveal-delay-4{transition-delay:0.4s}
 .reveal-delay-5{transition-delay:0.5s}
 
-/* SERVICES */
 #services{background:var(--parchment);color:var(--dark-text)}
 #services .section-heading{color:var(--dark-text)}
 #services .section-sub{color:var(--muted)}
@@ -106,7 +99,6 @@ section{padding:120px 64px}
 .svc-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--dark-text);margin-bottom:8px}
 .svc-desc{font-size:12px;color:var(--muted);line-height:1.7}
 
-/* FLEET */
 #fleet{background:var(--navy)}
 .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px}
 .fleet-card{background:var(--surface);border-top:1px solid rgba(184,149,42,0.12);padding:0 0 36px;position:relative;overflow:hidden;cursor:none;transition:border-color 0.3s}
@@ -120,12 +112,10 @@ section{padding:120px 64px}
 .fleet-model{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(232,228,220,0.4);margin:4px 0 16px}
 .fleet-desc{font-size:12px;color:rgba(232,228,220,0.55);line-height:1.7}
 
-/* RATES */
 #rates{background:var(--parchment);color:var(--dark-text)}
 #rates .section-heading{color:var(--dark-text)}
 #rates .section-tag{color:var(--gold)}
 
-/* Airport cards */
 .airport-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:64px}
 .ap-card{background:var(--navy);padding:36px 32px;border-left:3px solid var(--gold);position:relative;overflow:hidden;transition:background 0.3s}
 .ap-card:hover{background:var(--surface)}
@@ -164,7 +154,6 @@ section{padding:120px 64px}
 .rates-note{background:var(--surface2);padding:24px 32px;font-size:11px;color:rgba(232,228,220,0.4);line-height:1.9;border-left:2px solid rgba(184,149,42,0.3)}
 .rates-note strong{color:rgba(184,149,42,0.8)}
 
-/* SPECIAL DAY TRIPS */
 #special{background:var(--midnight)}
 .sdt-table{width:100%;border-collapse:collapse;margin-top:48px}
 .sdt-table th{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);padding:16px 20px;text-align:left;border-bottom:1px solid rgba(184,149,42,0.2)}
@@ -174,7 +163,6 @@ section{padding:120px 64px}
 .sdt-note{margin-top:24px;padding:20px 24px;background:var(--surface);border-left:2px solid rgba(184,149,42,0.3);font-size:11px;color:rgba(232,228,220,0.4);line-height:1.9}
 .sdt-note strong{color:rgba(184,149,42,0.7)}
 
-/* WHY */
 #why{background:var(--parchment);color:var(--dark-text)}
 #why .section-heading{color:var(--dark-text)}
 #why .section-tag{color:var(--gold)}
@@ -185,10 +173,8 @@ section{padding:120px 64px}
 .why-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--dark-text);margin-bottom:14px}
 .why-desc{font-size:13px;color:var(--muted);line-height:1.8}
 
-/* CONTACT */
 #contact{background:var(--navy)}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:64px}
-.contact-left{}
 .contact-detail{margin-bottom:40px}
 .contact-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:600}
 .contact-value{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--white);text-decoration:none;display:block;transition:color 0.2s;line-height:1.2}
@@ -220,7 +206,6 @@ section{padding:120px 64px}
 .newsletter-form button{background:var(--gold);border:none;padding:14px 24px;font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--midnight);cursor:none;transition:background 0.2s}
 .newsletter-form button:hover{background:var(--gold-light)}
 
-/* FOOTER */
 footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padding:36px 64px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
 .footer-logo{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:4px;color:var(--white)}
 .footer-logo span{color:var(--gold)}
@@ -229,7 +214,6 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
 .footer-links a:hover{color:var(--gold)}
 .footer-copy{font-size:10px;color:rgba(232,228,220,0.25);letter-spacing:1px}
 
-/* MOBILE */
 @media(max-width:900px){
   nav{padding:20px 24px}
   nav.solid{padding:16px 24px}
@@ -265,7 +249,6 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- NAV -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo">UNI<span>LIMO</span></a>
   <ul class="nav-links">
@@ -278,7 +261,6 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
@@ -296,7 +278,6 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
 
 <div class="divider"></div>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="services-intro">
     <div>
@@ -353,13 +334,12 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
 
 <div class="divider"></div>
 
-<!-- FLEET -->
 <section id="fleet">
   <div class="section-tag reveal">Our Fleet</div>
   <h2 class="section-heading reveal">World-Class Vehicles,<br><em>Uncompromising Comfort</em></h2>
   <div class="fleet-grid">
     <div class="fleet-card reveal reveal-delay-1">
-      <img class="fleet-img" src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80" alt="Chevrolet Suburban SUV" loading="lazy">
+      <img class="fleet-img" src="images/chevrolet-suburban.jpg" alt="Chevrolet Suburban SUV" loading="lazy">
       <div class="fleet-body">
         <div class="fleet-brand">Chevrolet</div>
         <div class="fleet-model">Suburban SUV · 6 Passenger</div>
@@ -411,13 +391,11 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
 
 <div class="divider"></div>
 
-<!-- RATES -->
 <section id="rates">
   <div class="section-tag reveal">Transparent Pricing</div>
   <h2 class="section-heading reveal" style="color:var(--dark-text)">Find Your Rate<br><em>Instantly</em></h2>
   <p class="section-sub reveal" style="margin-bottom:64px">All rates originate from Manhattan. Search any city or destination below — Connecticut, Long Island, New Jersey, New York, Westchester, or Pennsylvania.</p>
 
-  <!-- Airport cards -->
   <div class="airport-grid reveal">
     <div class="ap-card">
       <div class="ap-code">JFK</div>
@@ -458,7 +436,6 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
   </div>
   <p style="font-size:11px;color:var(--muted);margin-bottom:48px;padding:0 4px">Sedan $85/hr · SUV $115/hr (2hr min) · Waiting: Sedan $1/min · SUV $1.25/min · Standard gratuity 15%</p>
 
-  <!-- City Search -->
   <div class="rates-search-wrap reveal">
     <span class="rates-search-label">Search Any City or Destination</span>
     <div class="rates-search-inner">
@@ -490,7 +467,6 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
 
 <div class="divider"></div>
 
-<!-- SPECIAL DAY TRIPS -->
 <section id="special">
   <div class="section-tag reveal">Hourly &amp; Group Rates</div>
   <h2 class="section-heading reveal">Special Day Trips<br><em>&amp; Bus Rates</em></h2>
@@ -522,7 +498,6 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
 
 <div class="divider"></div>
 
-<!-- WHY UNILIMO -->
 <section id="why">
   <div class="section-tag reveal">The Unilimo Standard</div>
   <h2 class="section-heading reveal">Why Choose<br><em>Unilimo</em></h2>
@@ -550,7 +525,6 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
 
 <div class="divider"></div>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="section-tag reveal">Get In Touch</div>
   <h2 class="section-heading reveal">Request a<br><em>Quote</em></h2>
@@ -647,7 +621,6 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">UNI<span>LIMO</span></div>
   <div class="footer-links">
@@ -663,26 +636,22 @@ footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padd
 
 <script src="rates.js"></script>
 <script>
-// CURSOR
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px'});
 (function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
 
-// NAV SCROLL
 window.addEventListener('scroll',()=>{
   document.getElementById('navbar').classList.toggle('solid',window.scrollY>80);
 });
 
-// SCROLL REVEAL
 const revealEls = document.querySelectorAll('.reveal');
 const ro = new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}});
 },{threshold:0.1});
 revealEls.forEach(el=>ro.observe(el));
 
-// RATE SEARCH
 const searchInput = document.getElementById('rateSearch');
 const acBox = document.getElementById('autocompleteBox');
 const resultCard = document.getElementById('rateResult');
@@ -716,7 +685,6 @@ document.addEventListener('click',e=>{
   if(!e.target.closest('.rates-search-inner')) acBox.style.display='none';
 });
 
-// FORMS
 function handleQuote(e){
   e.preventDefault();
   const form = e.target;
