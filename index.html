@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unilimo — Your Exclusive Limo Service | New York</title>
+<meta name="description" content="Unilimo is New York's premier luxury limousine service. Professional chauffeurs, competitive rates, serving the Tri-State area and beyond.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #B8952A;
+  --gold-light: #d4ae4a;
+  --gold-dim: rgba(184,149,42,0.12);
+  --midnight: #070A12;
+  --navy: #0A0E1A;
+  --surface: #10141F;
+  --surface2: #181D2E;
+  --parchment: #F8F5F0;
+  --parchment2: #EDE9E2;
+  --dark-text: #1A1A1A;
+  --muted: #6B6560;
+  --white: #FFFFFF;
+  --off-white: #E8E4DC;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--midnight);color:var(--off-white);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+
+/* CUSTOM CURSOR */
+.cursor{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s;mix-blend-mode:difference}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(184,149,42,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.15s ease;mix-blend-mode:normal}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:28px 64px;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s ease;background:transparent}
+nav.solid{background:rgba(7,10,18,0.96);border-bottom:1px solid rgba(184,149,42,0.1);padding:18px 64px;backdrop-filter:blur(8px)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;letter-spacing:6px;color:var(--white);text-decoration:none;text-transform:uppercase}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:44px;list-style:none}
+.nav-links a{font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:rgba(232,228,220,0.6);text-decoration:none;transition:color 0.2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s ease}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+.nav-book{background:var(--gold)!important;color:var(--midnight)!important;padding:12px 28px;font-weight:600!important;letter-spacing:2px!important}
+.nav-book::after{display:none!important}
+.nav-book:hover{background:var(--gold-light)!important;color:var(--midnight)!important}
+
+/* HERO */
+#hero{position:relative;height:100vh;min-height:720px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(105deg,rgba(7,10,18,0.92) 0%,rgba(7,10,18,0.7) 40%,rgba(7,10,18,0.82) 100%),url('https://unilimo.com/wp-content/uploads/2018/06/car.jpg') center/cover no-repeat;z-index:0}
+.hero-bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,var(--midnight),transparent);z-index:1}
+
+.hero-content{position:relative;z-index:3;text-align:center;padding:0 24px;max-width:900px}
+.hero-eyebrow{font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:32px;opacity:0;animation:fadeUp 0.8s 0.6s ease forwards}
+.hero-title-1{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,9vw,120px);font-weight:300;line-height:0.95;color:var(--white);letter-spacing:-1px;display:block;opacity:0;animation:fadeUp 0.9s 0.9s ease forwards}
+.hero-title-2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,48px);font-weight:300;line-height:1.2;color:var(--gold);font-style:italic;display:block;white-space:nowrap;opacity:0;animation:fadeUp 0.9s 1.2s ease forwards;margin-bottom:28px}
+.hero-sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(232,228,220,0.5);margin-bottom:56px;opacity:0;animation:fadeUp 0.8s 1.5s ease forwards}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 0.8s 1.8s ease forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.btn-gold{background:var(--gold);color:var(--midnight);padding:18px 48px;font-family:'Jost',sans-serif;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;text-decoration:none;border:none;cursor:none;transition:all 0.3s;display:inline-block;position:relative;overflow:hidden}
+.btn-gold::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:rgba(255,255,255,0.15);transition:left 0.3s ease}
+.btn-gold:hover::before{left:100%}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--white);border:1px solid rgba(184,149,42,0.4);padding:18px 48px;font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:3px;text-transform:uppercase;text-decoration:none;cursor:none;transition:all 0.3s;display:inline-block}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-scroll{position:absolute;bottom:48px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;z-index:3;opacity:0;animation:fadeUp 1s 2.2s ease forwards}
+.hero-scroll span{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:rgba(184,149,42,0.6)}
+.scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 1.8s ease infinite}
+@keyframes scrollPulse{0%,100%{opacity:0.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.1)}}
+
+/* GOLD DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.2;margin:0}
+
+/* SECTION BASE */
+section{padding:120px 64px}
+.section-tag{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:16px}
+.section-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--gold)}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4.5vw,68px);font-weight:300;line-height:1.05;margin-bottom:20px}
+.section-heading em{font-style:italic;color:var(--gold)}
+.section-sub{font-size:14px;color:var(--muted);line-height:1.8;max-width:520px}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+.reveal-delay-5{transition-delay:0.5s}
+
+/* SERVICES */
+#services{background:var(--parchment);color:var(--dark-text)}
+#services .section-heading{color:var(--dark-text)}
+#services .section-sub{color:var(--muted)}
+#services .section-tag{color:var(--gold)}
+.services-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-bottom:72px;flex-wrap:wrap}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.svc-card{background:var(--white);position:relative;overflow:hidden;cursor:none}
+.svc-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height 0.4s ease;z-index:2}
+.svc-card:hover::before{height:100%}
+.svc-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:grayscale(20%);transition:transform 0.5s ease,filter 0.4s ease}
+.svc-card:hover .svc-img{transform:scale(1.04);filter:grayscale(0%)}
+.svc-info{padding:28px 32px 32px}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--dark-text);margin-bottom:8px}
+.svc-desc{font-size:12px;color:var(--muted);line-height:1.7}
+
+/* FLEET */
+#fleet{background:var(--navy)}
+.fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px}
+.fleet-card{background:var(--surface);border-top:1px solid rgba(184,149,42,0.12);padding:0 0 36px;position:relative;overflow:hidden;cursor:none;transition:border-color 0.3s}
+.fleet-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform 0.4s ease}
+.fleet-card:hover{border-color:rgba(184,149,42,0.35)}
+.fleet-card:hover::after{transform:scaleX(1)}
+.fleet-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;filter:brightness(0.88);transition:filter 0.4s}
+.fleet-card:hover .fleet-img{filter:brightness(1)}
+.fleet-body{padding:28px 32px 0}
+.fleet-brand{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);letter-spacing:1px}
+.fleet-model{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(232,228,220,0.4);margin:4px 0 16px}
+.fleet-desc{font-size:12px;color:rgba(232,228,220,0.55);line-height:1.7}
+
+/* RATES */
+#rates{background:var(--parchment);color:var(--dark-text)}
+#rates .section-heading{color:var(--dark-text)}
+#rates .section-tag{color:var(--gold)}
+
+/* Airport cards */
+.airport-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:64px}
+.ap-card{background:var(--navy);padding:36px 32px;border-left:3px solid var(--gold);position:relative;overflow:hidden;transition:background 0.3s}
+.ap-card:hover{background:var(--surface)}
+.ap-code{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.ap-name{font-family:'Jost',sans-serif;font-size:12px;color:rgba(232,228,220,0.6);margin-bottom:16px}
+.ap-price{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--white);line-height:1}
+.ap-from{font-size:10px;color:rgba(232,228,220,0.35);letter-spacing:1px;margin-top:4px}
+
+.rates-search-wrap{background:var(--navy);padding:48px;margin-bottom:2px;position:relative;z-index:10}
+.rates-search-label{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:block}
+.rates-search-inner{position:relative;margin-bottom:24px;z-index:100}
+.rates-search-inner input{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(184,149,42,0.35);padding:18px 56px 18px 0;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--white);outline:none;transition:border-color 0.3s;cursor:none}
+.rates-search-inner input::placeholder{color:rgba(232,228,220,0.25)}
+.rates-search-inner input:focus{border-color:var(--gold)}
+.search-icon-el{position:absolute;right:0;top:50%;transform:translateY(-50%);color:var(--gold);font-size:22px;pointer-events:none}
+.autocomplete-box{position:absolute;top:100%;left:0;right:0;background:#181D2E;border:1px solid rgba(184,149,42,0.25);max-height:320px;overflow-y:auto;z-index:9999;display:none;box-shadow:0 16px 48px rgba(0,0,0,0.7)}
+.autocomplete-box::-webkit-scrollbar{width:3px}
+.autocomplete-box::-webkit-scrollbar-thumb{background:var(--gold)}
+.ac-item{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;cursor:none;transition:background 0.15s;border-bottom:1px solid rgba(255,255,255,0.04)}
+.ac-item:hover{background:rgba(184,149,42,0.08)}
+.ac-city{font-size:14px;color:var(--off-white)}
+.ac-region{font-size:10px;color:rgba(232,228,220,0.35);letter-spacing:1px;text-transform:uppercase}
+.ac-price{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold)}
+
+.rate-result-card{display:none;background:var(--surface2);border:1px solid rgba(184,149,42,0.2);padding:40px 48px;margin-top:24px;animation:fadeUp 0.4s ease}
+.rrc-region{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.rrc-city{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--white);margin-bottom:4px}
+.rrc-rate-row{display:flex;align-items:baseline;gap:12px;margin:28px 0 24px;padding:24px 0;border-top:1px solid rgba(184,149,42,0.15);border-bottom:1px solid rgba(184,149,42,0.15)}
+.rrc-from{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(232,228,220,0.4)}
+.rrc-price{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:var(--gold);line-height:1}
+.rrc-fees{display:flex;flex-direction:column;gap:6px}
+.rrc-fee{font-size:11px;color:rgba(232,228,220,0.4);display:flex;align-items:center;gap:8px}
+.rrc-fee::before{content:'＋';color:var(--gold);font-size:10px}
+.rrc-cta{display:inline-block;margin-top:28px}
+
+.rates-note{background:var(--surface2);padding:24px 32px;font-size:11px;color:rgba(232,228,220,0.4);line-height:1.9;border-left:2px solid rgba(184,149,42,0.3)}
+.rates-note strong{color:rgba(184,149,42,0.8)}
+
+/* SPECIAL DAY TRIPS */
+#special{background:var(--midnight)}
+.sdt-table{width:100%;border-collapse:collapse;margin-top:48px}
+.sdt-table th{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);padding:16px 20px;text-align:left;border-bottom:1px solid rgba(184,149,42,0.2)}
+.sdt-table td{padding:18px 20px;font-size:13px;color:var(--off-white);border-bottom:1px solid rgba(255,255,255,0.04)}
+.sdt-table tr:hover td{background:rgba(184,149,42,0.03)}
+.sdt-price{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold)}
+.sdt-note{margin-top:24px;padding:20px 24px;background:var(--surface);border-left:2px solid rgba(184,149,42,0.3);font-size:11px;color:rgba(232,228,220,0.4);line-height:1.9}
+.sdt-note strong{color:rgba(184,149,42,0.7)}
+
+/* WHY */
+#why{background:var(--parchment);color:var(--dark-text)}
+#why .section-heading{color:var(--dark-text)}
+#why .section-tag{color:var(--gold)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px}
+.why-item{background:var(--white);padding:52px 44px;position:relative;overflow:hidden}
+.why-num{font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:300;line-height:1;color:rgba(184,149,42,0.08);position:absolute;top:20px;right:24px;letter-spacing:-4px}
+.why-icon{font-size:32px;margin-bottom:24px;display:block}
+.why-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--dark-text);margin-bottom:14px}
+.why-desc{font-size:13px;color:var(--muted);line-height:1.8}
+
+/* CONTACT */
+#contact{background:var(--navy)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:64px}
+.contact-left{}
+.contact-detail{margin-bottom:40px}
+.contact-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:600}
+.contact-value{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--white);text-decoration:none;display:block;transition:color 0.2s;line-height:1.2}
+.contact-value:hover{color:var(--gold)}
+.email-btn{display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(184,149,42,0.35);color:var(--gold);padding:14px 28px;font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;cursor:none;transition:all 0.3s;margin-top:12px}
+.email-btn:hover{background:var(--gold);color:var(--midnight);border-color:var(--gold)}
+
+.contact-form{display:flex;flex-direction:column;gap:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-group{display:flex;flex-direction:column;gap:8px}
+.form-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(232,228,220,0.4);font-weight:500}
+.form-group input,.form-group select,.form-group textarea{background:var(--surface);border:none;border-bottom:1px solid rgba(184,149,42,0.2);color:var(--off-white);padding:14px 0;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;outline:none;transition:border-color 0.3s;cursor:none;-webkit-appearance:none}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(232,228,220,0.2)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group select{color:rgba(232,228,220,0.5)}
+.form-group select option{background:var(--surface2);color:var(--off-white)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-submit{background:var(--gold);color:var(--midnight);border:none;padding:18px;font-family:'Jost',sans-serif;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;cursor:none;transition:all 0.3s;margin-top:8px;position:relative;overflow:hidden}
+.form-submit::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:rgba(255,255,255,0.15);transition:left 0.3s}
+.form-submit:hover::before{left:100%}
+.form-submit:hover{background:var(--gold-light)}
+
+.newsletter-wrap{margin-top:48px;padding-top:40px;border-top:1px solid rgba(184,149,42,0.1)}
+.newsletter-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--white);margin-bottom:6px}
+.newsletter-sub{font-size:12px;color:rgba(232,228,220,0.4);margin-bottom:20px}
+.newsletter-form{display:flex}
+.newsletter-form input{flex:1;background:var(--surface);border:1px solid rgba(184,149,42,0.15);border-right:none;color:var(--off-white);padding:14px 18px;font-family:'Jost',sans-serif;font-size:12px;outline:none;cursor:none;transition:border-color 0.3s}
+.newsletter-form input:focus{border-color:var(--gold)}
+.newsletter-form button{background:var(--gold);border:none;padding:14px 24px;font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--midnight);cursor:none;transition:background 0.2s}
+.newsletter-form button:hover{background:var(--gold-light)}
+
+/* FOOTER */
+footer{background:var(--midnight);border-top:1px solid rgba(184,149,42,0.1);padding:36px 64px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:4px;color:var(--white)}
+.footer-logo span{color:var(--gold)}
+.footer-links{display:flex;gap:32px;flex-wrap:wrap}
+.footer-links a{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(232,228,220,0.35);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{font-size:10px;color:rgba(232,228,220,0.25);letter-spacing:1px}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:20px 24px}
+  nav.solid{padding:16px 24px}
+  .nav-links{display:none}
+  section{padding:80px 24px}
+  .services-grid,.fleet-grid,.why-grid{grid-template-columns:1fr}
+  .airport-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr;gap:48px}
+  .form-row{grid-template-columns:1fr}
+  footer{flex-direction:column;padding:28px 24px;text-align:center}
+  .hero-title-1,.hero-title-2{font-size:clamp(42px,12vw,72px)}
+  .rates-search-wrap{padding:28px 20px;overflow:visible}
+  .rates-search-inner{overflow:visible}
+  .autocomplete-box{position:absolute;left:0;right:0;top:100%;width:100%;box-sizing:border-box;z-index:9999}
+  .ac-item{padding:12px 16px}
+  .ac-city{font-size:13px}
+  .ac-price{font-size:18px}
+  .rates-search-inner input{font-size:20px}
+}
+@media(max-width:480px){
+  .airport-grid{grid-template-columns:1fr}
+  .hero-title-1{font-size:clamp(36px,13vw,60px)}
+  .hero-title-2{font-size:clamp(18px,6vw,32px);white-space:normal}
+  .ap-price{font-size:40px}
+  .fleet-grid{grid-template-columns:1fr}
+  .rates-search-wrap{padding:24px 16px}
+  .rates-search-inner input{font-size:18px;padding:14px 40px 14px 0}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">UNI<span>LIMO</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#fleet">Fleet</a></li>
+    <li><a href="#rates">Rates</a></li>
+    <li><a href="#special">Day Trips</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="mailto:res@unilimo.com" class="nav-book">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">New York's Premier Luxury Transport</div>
+    <span class="hero-title-1">Welcome to UNILIMO</span>
+    <span class="hero-title-2">Your Exclusive Limo Service</span>
+    <p class="hero-sub">Tri-State Area &amp; Beyond &nbsp;·&nbsp; Est. New York</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-gold">Request a Quote</a>
+      <a href="#rates" class="btn-outline">View Rates</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-intro">
+    <div>
+      <div class="section-tag reveal">What We Offer</div>
+      <h2 class="section-heading reveal">Every Occasion,<br><em>Flawlessly Handled</em></h2>
+    </div>
+    <p class="section-sub reveal">From executive airport transfers to your most cherished milestones — Unilimo's professionally trained chauffeurs deliver punctual, courteous service every time.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card reveal reveal-delay-1">
+      <img class="svc-img" src="images/airport-travel.jpg" alt="Airport Transfer" loading="lazy">
+      <div class="svc-info">
+        <div class="svc-name">Airport Transfers</div>
+        <p class="svc-desc">JFK, LaGuardia, Newark, Teterboro, Westchester & Morristown. Flat rates with flight monitoring and complimentary wait time.</p>
+      </div>
+    </div>
+    <div class="svc-card reveal reveal-delay-2">
+      <img class="svc-img" src="images/corporate-travel.jpg" alt="Corporate Travel" loading="lazy">
+      <div class="svc-info">
+        <div class="svc-name">Corporate Travel</div>
+        <p class="svc-desc">Reliable, discreet transportation for executives and teams. Impeccably on time, every time.</p>
+      </div>
+    </div>
+    <div class="svc-card reveal reveal-delay-3">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" alt="Weddings" loading="lazy">
+      <div class="svc-info">
+        <div class="svc-name">Weddings</div>
+        <p class="svc-desc">Arrive at your most important day in absolute elegance. We coordinate the entire bridal party with precision.</p>
+      </div>
+    </div>
+    <div class="svc-card reveal reveal-delay-1">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Proms and Formals" loading="lazy">
+      <div class="svc-info">
+        <div class="svc-name">Proms &amp; Formals</div>
+        <p class="svc-desc">Make the night unforgettable from the very first moment. Safe, stylish, and perfectly on time.</p>
+      </div>
+    </div>
+    <div class="svc-card reveal reveal-delay-2">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80" alt="Concerts and Events" loading="lazy">
+      <div class="svc-info">
+        <div class="svc-name">Concerts &amp; Events</div>
+        <p class="svc-desc">Arrive at any New York venue without the hassle. We wait while you enjoy the show.</p>
+      </div>
+    </div>
+    <div class="svc-card reveal reveal-delay-3">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=800&q=80" alt="Anniversaries" loading="lazy">
+      <div class="svc-info">
+        <div class="svc-name">Anniversaries &amp; Special Days</div>
+        <p class="svc-desc">Let us handle every detail while you focus on the moment. Custom routes and impeccable service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FLEET -->
+<section id="fleet">
+  <div class="section-tag reveal">Our Fleet</div>
+  <h2 class="section-heading reveal">World-Class Vehicles,<br><em>Uncompromising Comfort</em></h2>
+  <div class="fleet-grid">
+    <div class="fleet-card reveal reveal-delay-1">
+      <img class="fleet-img" src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80" alt="Chevrolet Suburban SUV" loading="lazy">
+      <div class="fleet-body">
+        <div class="fleet-brand">Chevrolet</div>
+        <div class="fleet-model">Suburban SUV · 6 Passenger</div>
+        <p class="fleet-desc">Spacious, commanding, and luxuriously appointed. Ideal for families, groups, or when you need extra luggage capacity.</p>
+      </div>
+    </div>
+    <div class="fleet-card reveal reveal-delay-2">
+      <img class="fleet-img" src="images/cadillac-escalade.jpg" alt="Cadillac Escalade" loading="lazy">
+      <div class="fleet-body">
+        <div class="fleet-brand">Cadillac</div>
+        <div class="fleet-model">Escalade · 6 Passenger</div>
+        <p class="fleet-desc">Bold American luxury with a commanding presence. Premium leather interior and a smooth, powerful ride for any occasion.</p>
+      </div>
+    </div>
+    <div class="fleet-card reveal reveal-delay-3">
+      <img class="fleet-img" src="images/lincoln-navigator.jpg" alt="Lincoln Navigator" loading="lazy">
+      <div class="fleet-body">
+        <div class="fleet-brand">Lincoln</div>
+        <div class="fleet-model">Navigator · 6 Passenger</div>
+        <p class="fleet-desc">The cornerstone of our fleet. Polished, professional, and perfectly suited for airport runs and executive travel.</p>
+      </div>
+    </div>
+    <div class="fleet-card reveal reveal-delay-1">
+      <img class="fleet-img" src="images/ford-expedition.jpg" alt="Ford Expedition" loading="lazy">
+      <div class="fleet-body">
+        <div class="fleet-brand">Ford</div>
+        <div class="fleet-model">Expedition · 6 Passenger</div>
+        <p class="fleet-desc">A refined, full-size SUV built for comfort and capability. Great for groups who want extra room without compromise.</p>
+      </div>
+    </div>
+    <div class="fleet-card reveal reveal-delay-2">
+      <img class="fleet-img" src="images/mercedes-sprinter.jpg" alt="Mercedes Sprinter" loading="lazy">
+      <div class="fleet-body">
+        <div class="fleet-brand">Mercedes</div>
+        <div class="fleet-model">Sprinter · 11–14 Passenger</div>
+        <p class="fleet-desc">Premier group transport. Perfect for corporate groups, wedding parties, and event shuttles across the Tri-State area.</p>
+      </div>
+    </div>
+    <div class="fleet-card reveal reveal-delay-3">
+      <img class="fleet-img" src="images/coach-fleet.jpg" alt="Coach Fleet" loading="lazy">
+      <div class="fleet-body">
+        <div class="fleet-brand">Coach Fleet</div>
+        <div class="fleet-model">24 · 36 · 56 Passenger</div>
+        <p class="fleet-desc">Executive mini coaches and motorcoaches for large groups — corporate events, concerts, tours, and special occasions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RATES -->
+<section id="rates">
+  <div class="section-tag reveal">Transparent Pricing</div>
+  <h2 class="section-heading reveal" style="color:var(--dark-text)">Find Your Rate<br><em>Instantly</em></h2>
+  <p class="section-sub reveal" style="margin-bottom:64px">All rates originate from Manhattan. Search any city or destination below — Connecticut, Long Island, New Jersey, New York, Westchester, or Pennsylvania.</p>
+
+  <!-- Airport cards -->
+  <div class="airport-grid reveal">
+    <div class="ap-card">
+      <div class="ap-code">JFK</div>
+      <div class="ap-name">John F. Kennedy International</div>
+      <div class="ap-price">$110</div>
+      <div class="ap-from">From Manhattan</div>
+    </div>
+    <div class="ap-card">
+      <div class="ap-code">LGA</div>
+      <div class="ap-name">LaGuardia Airport</div>
+      <div class="ap-price">$90</div>
+      <div class="ap-from">From Manhattan</div>
+    </div>
+    <div class="ap-card">
+      <div class="ap-code">EWR</div>
+      <div class="ap-name">Newark Liberty International</div>
+      <div class="ap-price">$120</div>
+      <div class="ap-from">From Manhattan</div>
+    </div>
+    <div class="ap-card">
+      <div class="ap-code">TEB</div>
+      <div class="ap-name">Teterboro Airport</div>
+      <div class="ap-price">$125</div>
+      <div class="ap-from">From Manhattan</div>
+    </div>
+    <div class="ap-card">
+      <div class="ap-code">HPN</div>
+      <div class="ap-name">Westchester County Airport</div>
+      <div class="ap-price">$182</div>
+      <div class="ap-from">From Manhattan</div>
+    </div>
+    <div class="ap-card">
+      <div class="ap-code">MMU</div>
+      <div class="ap-name">Morristown Municipal Airport</div>
+      <div class="ap-price">$160</div>
+      <div class="ap-from">From Manhattan</div>
+    </div>
+  </div>
+  <p style="font-size:11px;color:var(--muted);margin-bottom:48px;padding:0 4px">Sedan $85/hr · SUV $115/hr (2hr min) · Waiting: Sedan $1/min · SUV $1.25/min · Standard gratuity 15%</p>
+
+  <!-- City Search -->
+  <div class="rates-search-wrap reveal">
+    <span class="rates-search-label">Search Any City or Destination</span>
+    <div class="rates-search-inner">
+      <input type="text" id="rateSearch" placeholder="Enter city name..." autocomplete="off">
+      <span class="search-icon-el">⌕</span>
+      <div class="autocomplete-box" id="autocompleteBox"></div>
+    </div>
+    <div class="rate-result-card" id="rateResult">
+      <div class="rrc-region" id="rrcRegion"></div>
+      <div class="rrc-city" id="rrcCity"></div>
+      <div class="rrc-rate-row">
+        <span class="rrc-from">From Manhattan</span>
+        <span class="rrc-price" id="rrcPrice"></span>
+      </div>
+      <div class="rrc-fees">
+        <div class="rrc-fee">15% operations charge on base fare</div>
+        <div class="rrc-fee">15% standard gratuity</div>
+        <div class="rrc-fee">3% credit card processing fee (if applicable)</div>
+      </div>
+      <a href="#contact" class="btn-gold rrc-cta">Request This Route</a>
+    </div>
+  </div>
+
+  <div class="rates-note reveal">
+    <strong>Don't see your city?</strong> If you need service in a state or city not listed here, we may still be able to accommodate you.
+    <strong><a href="mailto:res@unilimo.com" style="color:var(--gold);text-decoration:none">Send us a message</a></strong> or call us at <strong><a href="tel:2128821947" style="color:var(--gold);text-decoration:none">212-882-1947</a></strong> and we'll get you a custom quote.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SPECIAL DAY TRIPS -->
+<section id="special">
+  <div class="section-tag reveal">Hourly &amp; Group Rates</div>
+  <h2 class="section-heading reveal">Special Day Trips<br><em>&amp; Bus Rates</em></h2>
+  <p class="section-sub reveal">Hourly minimums apply for Manhattan. Fares for all other boroughs, states, and counties are variable.</p>
+  <table class="sdt-table reveal">
+    <thead>
+      <tr>
+        <th>Vehicle</th>
+        <th>Per Hour</th>
+        <th>Minimum</th>
+        <th>Airport Transfer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Lincoln Executive Sedan</td><td class="sdt-price">$85</td><td>2 Hours</td><td>LGA $90 · JFK $110 · EWR $120 · HPN $182 · TEB $125 · MMU $160</td></tr>
+      <tr><td>Chevy Suburban SUV (6 pass.)</td><td class="sdt-price">$115</td><td>2 Hours</td><td>$230 · All Airports</td></tr>
+      <tr><td>Luxury Mercedes Sedan</td><td class="sdt-price">$125</td><td>3 Hours</td><td>$375 · All Airports</td></tr>
+      <tr><td>Luxury BMW 7 Series</td><td class="sdt-price">$125</td><td>3 Hours</td><td>$375 · All Airports</td></tr>
+      <tr><td>11–14 Passenger Sprinter</td><td class="sdt-price">$130</td><td>3 Hours</td><td>$390 · All Airports</td></tr>
+      <tr><td>24 Passenger Executive Mini Coach</td><td class="sdt-price">$145</td><td>4 Hours</td><td>$580 · All Airports</td></tr>
+      <tr><td>36 Passenger Mini Coach</td><td class="sdt-price">$160</td><td>4 Hours</td><td>$640 · All Airports</td></tr>
+      <tr><td>56 Passenger Motorcoach</td><td class="sdt-price">$225</td><td>4 Hours</td><td>$875 · All Airports</td></tr>
+    </tbody>
+  </table>
+  <div class="sdt-note reveal">
+    <strong>Additional charges:</strong> 3% credit card processing fee · Prices exclude service charges, NYC Tax, tolls, airport parking, and gratuities · Prices subject to change without notice · Unilimo is not liable for delays due to weather or mechanical issues.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY UNILIMO -->
+<section id="why">
+  <div class="section-tag reveal">The Unilimo Standard</div>
+  <h2 class="section-heading reveal">Why Choose<br><em>Unilimo</em></h2>
+  <div class="why-grid">
+    <div class="why-item reveal reveal-delay-1">
+      <div class="why-num">01</div>
+      <span class="why-icon">🎩</span>
+      <div class="why-title">Professional Chauffeurs</div>
+      <p class="why-desc">Every driver is professionally trained, background-checked, and committed to providing courteous, discreet service on every ride.</p>
+    </div>
+    <div class="why-item reveal reveal-delay-2">
+      <div class="why-num">02</div>
+      <span class="why-icon">🗺</span>
+      <div class="why-title">Tri-State Coverage</div>
+      <p class="why-desc">From Manhattan to Connecticut, Long Island, New Jersey, Pennsylvania, and Westchester — one standard of excellence across every mile.</p>
+    </div>
+    <div class="why-item reveal reveal-delay-3">
+      <div class="why-num">03</div>
+      <span class="why-icon">🕐</span>
+      <div class="why-title">24 / 7 Availability</div>
+      <p class="why-desc">Early morning flights, late-night events, last-minute bookings. We're always on call. Reach us at 212-882-1947 or res@unilimo.com.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag reveal">Get In Touch</div>
+  <h2 class="section-heading reveal">Request a<br><em>Quote</em></h2>
+  <div class="contact-grid">
+    <div class="contact-left reveal">
+      <div class="contact-detail">
+        <div class="contact-label">Direct Line</div>
+        <a href="tel:2128821947" class="contact-value">212-882-1947</a>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-label">Email Reservations</div>
+        <a href="mailto:res@unilimo.com" class="contact-value">res@unilimo.com</a>
+        <a href="mailto:res@unilimo.com?subject=Instant%20Quote%20Request" class="email-btn">✉ &nbsp;Write for Instant Quote</a>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-label">Service Area</div>
+        <span class="contact-value" style="font-size:18px;cursor:default;line-height:1.6">New York · New Jersey<br>Connecticut · Long Island<br>Westchester · Pennsylvania</span>
+      </div>
+      <div class="newsletter-wrap">
+        <div class="newsletter-title">Stay Connected</div>
+        <p class="newsletter-sub">Join our list for seasonal offers and fleet updates.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <form class="contact-form" onsubmit="handleQuote(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" placeholder="(212) 000-0000" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Service Type</label>
+            <select required>
+              <option value="" disabled selected>Select service</option>
+              <option>Airport Transfer</option>
+              <option>Corporate Travel</option>
+              <option>Wedding</option>
+              <option>Prom / Formal</option>
+              <option>Concert / Event</option>
+              <option>Anniversary</option>
+              <option>Special Day Trip</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Pickup Date</label>
+            <input type="date" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Pickup Location</label>
+            <input type="text" placeholder="Manhattan, NY">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Destination</label>
+            <input type="text" placeholder="JFK Airport">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Additional Notes</label>
+          <textarea placeholder="Passengers, special requests, return trip details..."></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="submitBtn">Send Quote Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">UNI<span>LIMO</span></div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#fleet">Fleet</a>
+    <a href="#rates">Rates</a>
+    <a href="#special">Day Trips</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:res@unilimo.com">Email Us</a>
+  </div>
+  <div class="footer-copy">© 2026 UNILIMO · All Rights Reserved · New York</div>
+</footer>
+
+<script src="rates.js"></script>
+<script>
+// CURSOR
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px'});
+(function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+
+// NAV SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('solid',window.scrollY>80);
+});
+
+// SCROLL REVEAL
+const revealEls = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}});
+},{threshold:0.1});
+revealEls.forEach(el=>ro.observe(el));
+
+// RATE SEARCH
+const searchInput = document.getElementById('rateSearch');
+const acBox = document.getElementById('autocompleteBox');
+const resultCard = document.getElementById('rateResult');
+
+searchInput.addEventListener('input',()=>{
+  const q = searchInput.value.trim().toLowerCase();
+  if(q.length < 2){acBox.style.display='none';resultCard.style.display='none';return}
+  const matches = RATE_DATA.filter(r=>r.city.toLowerCase().includes(q)).slice(0,12);
+  if(!matches.length){acBox.style.display='none';return}
+  acBox.innerHTML = matches.map(r=>`
+    <div class="ac-item" data-city="${r.city}" data-region="${r.region}" data-price="${r.price}">
+      <div><div class="ac-city">${r.city}</div><div class="ac-region">${r.region}</div></div>
+      <div class="ac-price">$${r.price.toLocaleString()}</div>
+    </div>`).join('');
+  acBox.style.display='block';
+  acBox.querySelectorAll('.ac-item').forEach(item=>{
+    item.addEventListener('click',()=>{
+      const city=item.dataset.city, region=item.dataset.region, price=parseInt(item.dataset.price);
+      searchInput.value=city;
+      acBox.style.display='none';
+      document.getElementById('rrcRegion').textContent=region;
+      document.getElementById('rrcCity').textContent=city;
+      document.getElementById('rrcPrice').textContent='$'+price.toLocaleString();
+      resultCard.style.display='block';
+      resultCard.scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+  });
+});
+
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.rates-search-inner')) acBox.style.display='none';
+});
+
+// FORMS
+function handleQuote(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  btn.textContent='✓ Request Received — We\'ll Be In Touch Shortly';
+  btn.style.background='#2d5a3d';btn.style.color='#9fd4b0';
+  setTimeout(()=>{btn.textContent='Send Quote Request';btn.style.background='';btn.style.color='';e.target.reset();},5000);
+}
+function handleNewsletter(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('button');
+  btn.textContent='Subscribed ✓';btn.style.background='#2d5a3d';btn.style.color='#9fd4b0';
+  setTimeout(()=>{btn.textContent='Subscribe';btn.style.background='';btn.style.color='';e.target.reset();},3000);
+}
+</script>
+</body>
+</html>
